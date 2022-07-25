@@ -1,0 +1,46 @@
+import Decimal from 'decimal.js';
+import { ITreeNode } from './TreeNode';
+import TrigFn from './TrigFn';
+import { SPECIAL_ANGLES, QUADRANT_SIGNS } from './constants';
+
+/**
+ * Sine  function node
+ * @class Sine
+ * @extends {TreeNode}
+ */
+export default class Sine extends TrigFn implements ITreeNode {
+  constructor(operand:ITreeNode) {
+    super('sin', operand);
+  }
+
+  /**
+   * Evaluates the sine function
+   * @returns the result of the sine function
+   */
+  evaluate() {
+    Decimal.set({ precision: 500 });
+    let x = this.operand.evaluate();
+    Decimal.set({ precision: 20 });
+    if (Sine.angle === 'radians') {
+      x = Sine.toDegrees(x).toString();
+    }
+    const y = Sine.toFirstQuadrant(x);
+
+    if (Sine.isSpecialAngle(y)) {
+      const z = Sine.getQuadrant(x);
+      return QUADRANT_SIGNS.sin[z] + SPECIAL_ANGLES.sin[y].evaluate();
+    }
+    if (Sine.angle === 'degrees') {
+      return Sine.toRadins(x).sin().toString();
+    }
+    return Decimal.sin(x).toString();
+  }
+
+  /**
+   * print the abstract syntax tree of the sine function
+   * @returns the string representation of the sine function
+   */
+  toString() {
+    return `sin(${this.operand.toString()})`;
+  }
+}

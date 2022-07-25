@@ -1,0 +1,56 @@
+{
+  "name": "evaluate.js",
+  "packageManager": "pnpm@7.3.0",
+  "type": "module",
+  "description": "A lightweight Math library for javascript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "tsx watch src/parseExpression.ts",
+    "lint": "eslint src/**/*.ts test/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts test/**/*.ts --fix",
+    "prepare": "husky install",
+    "test": "vitest run",
+    "test:dev": "vitest"
+  },
+  "lint-staged": {
+    "*.(ts|js)": "eslint --fix"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olamide203/evaluatejs.git"
+  },
+  "author": "Olamide Atitebi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/olamide203/evaluatejs/issues"
+  },
+  "homepage": "https://github.com/olamide203/evaluatejs#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "^8.18.0",
+    "eslint-config-airbnb-base": "latest",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-plugin-import": "^2.26.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "rollup": "^2.75.7",
+    "tsx": "^3.6.0",
+    "typescript": "^4.7.4",
+    "vite": "^2.9.13",
+    "vitest": "^0.16.0"
+  },
+  "dependencies": {
+    "decimal.js": "^10.3.1"
+  }
+}
