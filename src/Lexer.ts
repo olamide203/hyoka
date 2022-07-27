@@ -1,20 +1,17 @@
-import Token from './Token';
+import Token, { Tokens } from './Token';
 
-export enum TOKEN {NUMBER, ID, CONSTANT,
-                   OPERATOR, LEFT_PAREN,
-                   NEXT, FUNCTION,
-                   RIGHT_PAREN, BINARAY_OPERATOR,
-                   UNARY_OPERATOR, END}
 // specifications for the tokenizer
-const spec:[RegExp, TOKEN][] = [
-  [/^\d+(\.\d+)?(e[+-]?\d+)?(?!\.)/, TOKEN.NUMBER],
-  [/^(sin|cos|tan|log|ln)/, TOKEN.FUNCTION],
-  [/^(π|pi|e)/, TOKEN.CONSTANT],
-  [/^[A-Za-z_][A-za-z0-9_]*/, TOKEN.ID],
-  [/^[/+*%^-]/, TOKEN.OPERATOR],
-  [/^\(/, TOKEN.LEFT_PAREN],
-  [/^\)/, TOKEN.RIGHT_PAREN],
-  [/^\s+/, TOKEN.NEXT],
+const spec:[RegExp, Tokens][] = [
+  [/^\d+(\.\d+)?(e[+-]?\d+)?(?!\.)/, Tokens.NUMBER],
+  [/^(sin|cos|tan|log|ln|gammln)/, Tokens.FUNCTION],
+  [/^(π|pi|e)/, Tokens.CONSTANT],
+  [/^[A-Za-z_][A-za-z0-9_]*/, Tokens.ID],
+  [/^[/+*%^-]/, Tokens.BINARY_INFIX],
+  [/^[-+]/, Tokens.UNARY_PREFIX],
+  [/^!/, Tokens.UNARY_POSTFIX],
+  [/^\(/, Tokens.LEFT_PAREN],
+  [/^\)/, Tokens.RIGHT_PAREN],
+  [/^\s+/, Tokens.NEXT],
 
 ];
 
@@ -42,13 +39,14 @@ export default class Lexer {
      */
   next():Token {
     if (this.isAtEnd()) {
-      return new Token(TOKEN.END, '');
+      return new Token(Tokens.END, '');
     }
     const str = this.input.slice(this.cursor);
+
     for (let i = 0; i < spec.length; i += 1) {
       const [regex, kind] = spec[i];
       const match = str.match(regex);
-      if (match && kind === TOKEN.NEXT) {
+      if (match && kind === Tokens.NEXT) {
         this.cursor += match[0].length;
         return this.next();
       }

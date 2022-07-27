@@ -1,23 +1,22 @@
-import Lexer, { TOKEN } from './Lexer';
-import { IToken } from './Token';
+import Lexer from './Lexer';
+import Token, { Tokens } from './Token';
 import TreeNode, { ITreeNode } from './nodes/TreeNode';
 import {
   BINARY_NODE_MAP, UNARY_NODE_MAP,
   UNARY_OPERATOR_PREC, BINARAY_OPERATOR_PREC,
   FUNC_NODE_MAP, CONSTANT_NODES,
 } from './constants';
-import { isValidProp } from './utils';
 /**
  * Parser to be used by the interpreter
- * implementation of the shunting-yard algorithm
+ * implementation of the shunting-yard a:lgorithm
  * https://en.wikipedia.org/wiki/Shunting_yard_algorithm
  */
 export default class Parser {
-  private operatorStack:IToken[] = [];
+  private operatorStack:Token[] = [];
 
   operandStack:ITreeNode[] = [];
 
-  currentToken:IToken;
+  currentToken:Token;
 
   lexer: Lexer;
 
@@ -37,27 +36,34 @@ export default class Parser {
    * @param token the token to create the node from
    * @returns the new node
    */
-  private createNode(token:IToken) {
-    let node;
-    if (token.kind === TOKEN.NUMBER) {
-      node = new TreeNode(token.value);
-    }
-    if (token.kind === TOKEN.CONSTANT && isValidProp(token.value, CONSTANT_NODES)) {
-      node = CONSTANT_NODES[token.value];
-    }
-    if (token.kind === TOKEN.BINARAY_OPERATOR && isValidProp(token.value, BINARY_NODE_MAP)) {
-      const right = this.getTopNode();
-      const left = this.getTopNode();
-      node = BINARY_NODE_MAP[token.value](left, right);
-    }
-    if (token.kind === TOKEN.UNARY_OPERATOR && isValidProp(token.value, UNARY_NODE_MAP)) {
-      node = UNARY_NODE_MAP[token.value](this.getTopNode());
-    }
-    if (token.kind === TOKEN.FUNCTION && isValidProp(token.value, FUNC_NODE_MAP)) {
-      node = FUNC_NODE_MAP[token.value](this.getTopNode());
-    }
-    if (!node) {
-      throw new SyntaxError(`unexpected token '${token.value}'`);
+  private createNode(token:Token) {
+    let left; let right; let node;
+    switch (token.kind) {
+      case Tokens.NUMBER:
+        node = new TreeNode(token.value);
+        break;
+      case Tokens.BINARY_INFIX:
+        right = this.getTopNode();
+        left = this.getTopNode();
+        node = BINARY_NODE_MAP[token.value](left, right);
+        break;
+      case Tokens.UNARY_PREFIX:
+        left = this.getTopNode();
+        node = UNARY_NODE_MAP[token.value](left);
+        break;
+      case Tokens.UNARY_POSTFIX:
+        left = this.getTopNode();
+        node = UNARY_NODE_MAP[token.value](left);
+        break;
+      case Tokens.FUNCTION:
+        left = this.getTopNode();
+        node = FUNC_NODE_MAP[token.value](left);
+        break;
+      case Tokens.CONSTANT:
+        node = CONSTANT_NODES[token.value]();
+        break;
+      default:
+        throw new SyntaxError(`unexpected token '${token.value}'`);
     }
     this.operandStack.push(node);
   }
@@ -66,10 +72,10 @@ export default class Parser {
    * helper function to check if there is an operator on the stack with higher
    * or equal precedence to this.currentToken other than the left parenthesis
    */
-  private hasLowerPrecedence(token:IToken):boolean {
+  private hasLowerPrecedence(token:Token):boolean {
     const top = this.operatorStack[this.operatorStack.length - 1];
     // TODO: check if operator is unary or binary
-    if (!top || top.kind === TOKEN.LEFT_PAREN) {
+    if (!top || top.kind === Tokens.LEFT_PAREN) {
       return false;
     }
     return Parser.getPrecedence(token) < Parser.getPrecedence(top);
@@ -93,7 +99,7 @@ export default class Parser {
    * @returns the last operator from the operator stack
    * @throws if the operator stack is empty
    */
-  private getTopOperator():IToken {
+  private getTopOperator():Token {
     const operator = this.operatorStack.pop();
     if (!operator) {
       throw new SyntaxError('unexpected end of input');
@@ -107,75 +113,77 @@ export default class Parser {
    * @returns the precedence of the token
    * @throws if the token is not an operator
    */
-  private static getPrecedence(token:IToken):number {
-    if (token.kind === TOKEN.BINARAY_OPERATOR && isValidProp(token.value, BINARAY_OPERATOR_PREC)) {
-      return BINARAY_OPERATOR_PREC[token.value];
+  private static getPrecedence(token:Token):number {
+    switch (token.kind) {
+      case Tokens.BINARY_INFIX:
+        return BINARAY_OPERATOR_PREC[token.value];
+      case Tokens.UNARY_PREFIX:
+        return UNARY_OPERATOR_PREC[token.value];
+      case Tokens.UNARY_POSTFIX:
+        return UNARY_OPERATOR_PREC[token.value];
+      default:
+        throw new SyntaxError(`unexpected token '${token.value}'`);
     }
-
-    if (token.kind === TOKEN.UNARY_OPERATOR && isValidProp(token.value, UNARY_OPERATOR_PREC)) {
-      return UNARY_OPERATOR_PREC[token.value];
-    }
-    throw new SyntaxError(`unexpected token '${token.value}'`);
-  }
-
-  /**
-   * helper function to update current token kind
-   */
-  private updateToken(token:IToken):IToken {
-    const result = token;
-    // count the number of nodes in the operand stack
-    const nodes = this.operandStack.length;
-    // count number of binay operators in the operator stack
-    const binaryOperators = this.operatorStack.reduce((acc, curr) => {
-      if (curr.kind === TOKEN.BINARAY_OPERATOR) {
-        return acc + 1;
-      }
-      return acc;
-    }, 0);
-
-    if (nodes > binaryOperators && token.kind === TOKEN.OPERATOR) {
-      result.kind = TOKEN.BINARAY_OPERATOR;
-    }
-    if (nodes <= binaryOperators && result.kind === TOKEN.OPERATOR
-        && (result.value === '-' || result.value === '+')) {
-      result.kind = TOKEN.UNARY_OPERATOR;
-    }
-    if (result.kind === TOKEN.OPERATOR) {
-      throw new SyntaxError(`unexpected token '${result.value}'`);
-    }
-    return result;
   }
 
   /**
    * determine the next token and update the current token
    * @throws if the lexer has no more tokens
    */
-  private getNextToken():IToken {
+  private getNextToken():Token {
     // peek at the next token
     const token = this.lexer.peek();
-    if (token.kind === TOKEN.RIGHT_PAREN) {
-      return this.lexer.next();
+    switch (token.kind) {
+      case Tokens.BINARY_INFIX:
+        return this.checkUnary(this.lexer.next());
+      case Tokens.RIGHT_PAREN:
+        return this.lexer.next();
+      case Tokens.UNARY_POSTFIX:
+        return this.checkUnary(this.lexer.next());
+      default:
+        return this.checkImplicitMultiplication();
     }
+  }
+
+  /**
+   * check if it needs to be converted to a unary operator
+   */
+  private checkUnary(token:Token):Token {
+    const x = token;
     const nodes = this.operandStack.length;
     // count number of binay operators in the operator stack
     const binaryOperators = this.operatorStack.reduce((acc, curr) => {
-      if (curr.kind === TOKEN.BINARAY_OPERATOR) {
+      if (curr.kind === Tokens.BINARY_INFIX) {
         return acc + 1;
       }
       return acc;
     }, 0);
-    if (token.kind !== TOKEN.OPERATOR && nodes > binaryOperators) {
-      return { kind: TOKEN.OPERATOR, value: '*' };
+    if (nodes <= binaryOperators && token.kind === Tokens.UNARY_POSTFIX) {
+      throw new SyntaxError(`unexpected token '${token.value}'`);
+    }
+    if (nodes <= binaryOperators && (token.value === '-' || token.value === '+')) {
+      x.kind = Tokens.UNARY_PREFIX;
     }
 
-    return this.lexer.next();
+    return x;
   }
 
+  checkImplicitMultiplication():Token {
+    const nodes = this.operandStack.length;
+    // count number of binay operators in the operator stack
+    const binaryOperators = this.operatorStack.reduce((acc, curr) => {
+      if (curr.kind === Tokens.BINARY_INFIX) {
+        return acc + 1;
+      }
+      return acc;
+    }, 0);
+    if (nodes > binaryOperators) {
+      return new Token(Tokens.BINARY_INFIX, '*');
+    }
+    return this.lexer.next();
+  }
   /**
-     * Parses the input string and returns the root node of the tree
-     * @returns the root node of the tree
-     * @example
-     * const parser = new Parser();
+();
      * parser.parse('1+2*3');
      * // returns the root node of the tree
    */
@@ -187,19 +195,19 @@ export default class Parser {
     while (!this.lexer.isAtEnd()) {
       this.currentToken = this.getNextToken();
       // if token is a number, put it into the output queue
-      if (this.currentToken.kind === TOKEN.NUMBER) {
+      if (this.currentToken.kind === Tokens.NUMBER) {
         this.createNode(this.currentToken);
       }
       //   if token is a constant
-      if (this.currentToken.kind === TOKEN.CONSTANT) {
+      if (this.currentToken.kind === Tokens.CONSTANT) {
         this.createNode(this.currentToken);
       }
       //   if token is a function put it into the operator stack
-      if (this.currentToken.kind === TOKEN.FUNCTION) {
+      if (this.currentToken.kind === Tokens.FUNCTION) {
         this.operatorStack.push(this.currentToken);
       }
-      if (this.currentToken.kind === TOKEN.OPERATOR) {
-        this.currentToken = this.updateToken(this.currentToken);
+      if (this.currentToken.isOperator()) {
+        // this.currentToken = this.updateToken(this.currentToken);
         while (this.hasLowerPrecedence(this.currentToken)) {
           // pop the operator from the operator stack and put it into the output queue
           this.createNode(this.getTopOperator());
@@ -207,12 +215,12 @@ export default class Parser {
         // push the operator onto the operator stack
         this.operatorStack.push(this.currentToken);
       }
-      if (this.currentToken.kind === TOKEN.LEFT_PAREN) {
+      if (this.currentToken.kind === Tokens.LEFT_PAREN) {
         // TODO: check for implicit multiplication
         this.operatorStack.push(this.currentToken);
       }
-      if (this.currentToken.kind === TOKEN.RIGHT_PAREN) {
-        while (this.operatorStack[this.operatorStack.length - 1].kind !== TOKEN.LEFT_PAREN) {
+      if (this.currentToken.kind === Tokens.RIGHT_PAREN) {
+        while (this.operatorStack[this.operatorStack.length - 1].kind !== Tokens.LEFT_PAREN) {
         //   assert that the operator stack is not empty
           if (this.operatorStack.length === 0) {
             throw new SyntaxError('unexpected right parenthesis');
@@ -220,12 +228,12 @@ export default class Parser {
           this.createNode(this.getTopOperator());
         }
         //   assert there is a left parenthesis on the operator stack
-        if (this.operatorStack[this.operatorStack.length - 1].kind !== TOKEN.LEFT_PAREN) {
+        if (this.operatorStack[this.operatorStack.length - 1].kind !== Tokens.LEFT_PAREN) {
           throw new SyntaxError('unexpected right parenthesis');
         }
         this.operatorStack.pop();
         //   if there is a function on the operator stack, pop it and put it into the output queue
-        if (this.operatorStack[this.operatorStack.length - 1]?.kind === TOKEN.FUNCTION) {
+        if (this.operatorStack[this.operatorStack.length - 1]?.kind === Tokens.FUNCTION) {
           this.createNode(this.getTopOperator());
         }
       }
@@ -233,7 +241,7 @@ export default class Parser {
     // pop remaining items from operator stack into output queue
     while (this.operatorStack.length > 0) {
       // assert the operator on top of the stack is not a left parenthesis
-      if (this.operatorStack[0].kind === TOKEN.LEFT_PAREN) {
+      if (this.operatorStack[0].kind === Tokens.LEFT_PAREN) {
         throw new SyntaxError('unexpected left parenthesis');
       }
       this.createNode(this.getTopOperator());

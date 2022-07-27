@@ -20,6 +20,7 @@ export default class Sine extends TrigFn implements ITreeNode {
   evaluate() {
     Decimal.set({ precision: 500 });
     let x = this.operand.evaluate();
+    const xx = x;
     Decimal.set({ precision: 20 });
     if (Sine.angle === 'radians') {
       x = Sine.toDegrees(x).toString();
@@ -31,9 +32,9 @@ export default class Sine extends TrigFn implements ITreeNode {
       return QUADRANT_SIGNS.sin[z] + SPECIAL_ANGLES.sin[y].evaluate();
     }
     if (Sine.angle === 'degrees') {
-      return Sine.toRadins(x).sin().toString();
+      return Sine.toRadins(xx).sin().toString();
     }
-    return Decimal.sin(x).toString();
+    return Decimal.sin(xx).toString();
   }
 
   /**
