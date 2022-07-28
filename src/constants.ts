@@ -8,6 +8,7 @@ import Sine from './nodes/Sine';
 import Pi from './nodes/Pi';
 import Gammln from './nodes/Gammln';
 import Factorial from './nodes/Factorial';
+import Modulo from './nodes/Modulo';
 
 interface IOperator {
     [key:string]: number
@@ -19,6 +20,7 @@ export const BINARY_NODE_MAP:{[key:string]:Function} = {
   '*': (x:ITreeNode, y:ITreeNode) => new Multiply(x, y),
   '/': (x:ITreeNode, y:ITreeNode) => new Divide(x, y),
   '^': (x:ITreeNode, y:ITreeNode) => new Power(x, y),
+  '%': (x:ITreeNode, y:ITreeNode) => new Modulo(x, y),
 };
 
 export const UNARY_NODE_MAP:{[key:string]:(x:ITreeNode)=>ITreeNode} = {
@@ -43,6 +45,7 @@ export const BINARAY_OPERATOR_PREC:IOperator = {
   '-': 1,
   '*': 2,
   '/': 2,
+  '%': 2,
   '^': 3,
 };
 
