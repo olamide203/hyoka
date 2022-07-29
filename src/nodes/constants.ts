@@ -9,9 +9,9 @@ const d = new TreeNode('2');
 const e = new TreeNode('3');
 
 export const QUADRANT_SIGNS = {
-  sin: ['', '', '-', '-'],
-  cos: ['', '-', '-', ''],
-  tan: ['', '-', '', '-'],
+  sin: ['+', '+', '-', '-'],
+  cos: ['+', '-', '-', '+'],
+  tan: ['+', '-', '+', '-'],
 };
 
 export const SPECIAL_ANGLES = {

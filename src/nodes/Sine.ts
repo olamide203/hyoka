@@ -29,7 +29,7 @@ export default class Sine extends TrigFn implements ITreeNode {
 
     if (Sine.isSpecialAngle(y)) {
       const z = Sine.getQuadrant(x);
-      return QUADRANT_SIGNS.sin[z] + SPECIAL_ANGLES.sin[y].evaluate();
+      return new Decimal(QUADRANT_SIGNS.sin[z] + SPECIAL_ANGLES.sin[y].evaluate()).toString();
     }
     if (Sine.angle === 'degrees') {
       return Sine.toRadins(xx).sin().toString();

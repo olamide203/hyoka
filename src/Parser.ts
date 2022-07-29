@@ -29,6 +29,8 @@ export default class Parser {
 
   reset(input:string):void {
     this.lexer = new Lexer(input);
+    this.operandStack = [];
+    this.operatorStack = [];
   }
 
   /**
@@ -188,7 +190,7 @@ export default class Parser {
      * // returns the root node of the tree
    */
 
-  parse(input:string) {
+  parse(input:string):ITreeNode {
     this.reset(input);
     // while there are tokens to be read read the next token
 

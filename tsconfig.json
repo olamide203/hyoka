@@ -10,7 +10,11 @@
     "declaration": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "target": "ES6"
+    "target": "ES5",
+    "declarationDir": "./dist/types",
+    "declarationMap": true,
+    "outDir": "./dist",
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["dist"]
 }
