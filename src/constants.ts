@@ -12,7 +12,7 @@ export const BINARY_NODE_MAP:{[key:string]:(x:ITreeNode, y:ITreeNode)=>ITreeNode
   '/': (x:ITreeNode, y:ITreeNode) => new Nodes.Divide(x, y),
   '^': (x:ITreeNode, y:ITreeNode) => new Nodes.Power(x, y),
   '%': (x:ITreeNode, y:ITreeNode) => new Nodes.Modulo(x, y),
-
+};
 
 export const UNARY_NODE_MAP:{[key:string]:(x:ITreeNode)=>ITreeNode} = {
   '-': (x:ITreeNode) => new Nodes.Subtract(x),
