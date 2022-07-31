@@ -9,8 +9,11 @@ import { SPECIAL_ANGLES, QUADRANT_SIGNS } from './constants';
  * @extends {TreeNode}
  */
 export default class Sine extends TrigFn implements ITreeNode {
-  constructor(operand:ITreeNode) {
-    super('sin', operand);
+  constructor(...x:ITreeNode[]) {
+    if (x.length !== 1) {
+      throw new SyntaxError(`Sine takes exactly one argument received ${x.length}`);
+    }
+    super('sin', x[0]);
   }
 
   /**

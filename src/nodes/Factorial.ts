@@ -10,9 +10,12 @@ import TreeNode, { ITreeNode } from './TreeNode';
 export default class Factorial extends TreeNode implements ITreeNode {
   operand: TreeNode;
 
-  constructor(x: TreeNode) {
+  constructor(...x: TreeNode[]) {
+    if (x.length !== 1) {
+      throw new SyntaxError(`Factorial takes exactly one argument received ${x.length}`);
+    }
     super('!');
-    this.operand = x;
+    [this.operand] = x;
   }
 
   evaluate():string {

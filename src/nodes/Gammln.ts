@@ -9,9 +9,12 @@ import TreeNode, { ITreeNode } from './TreeNode';
 export default class Gammln extends TreeNode implements ITreeNode {
   operand: TreeNode;
 
-  constructor(x: TreeNode) {
+  constructor(...x: TreeNode[]) {
+    if (x.length !== 1) {
+      throw new SyntaxError(`Gammln takes exactly one argument, received ${x.length}`);
+    }
     super('gammln');
-    this.operand = x;
+    [this.operand] = x;
   }
 
   evaluate() {

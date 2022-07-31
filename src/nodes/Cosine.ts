@@ -9,8 +9,11 @@ import { SPECIAL_ANGLES, QUADRANT_SIGNS } from './constants';
  * @extends {TreeNode}
  */
 export default class Cosine extends TrigFn implements ITreeNode {
-  constructor(operand:ITreeNode) {
-    super('cos', operand);
+  constructor(...x:ITreeNode[]) {
+    if (x.length !== 1) {
+      throw new SyntaxError(`Cosine takes exactly one argument received ${x.length}`);
+    }
+    super('cos', x[0]);
   }
 
   /**

@@ -10,6 +10,7 @@ const spec:[RegExp, Tokens][] = [
   [/^[-+]/, Tokens.UNARY_PREFIX],
   [/^!/, Tokens.UNARY_POSTFIX],
   [/^\(/, Tokens.LEFT_PAREN],
+  [/^,/, Tokens.COMMA],
   [/^\)/, Tokens.RIGHT_PAREN],
   [/^\s+/, Tokens.NEXT],
 
@@ -44,15 +45,15 @@ export default class Lexer {
     const str = this.input.slice(this.cursor);
 
     for (let i = 0; i < spec.length; i += 1) {
-      const [regex, kind] = spec[i];
+      const [regex, type] = spec[i];
       const match = str.match(regex);
-      if (match && kind === Tokens.NEXT) {
+      if (match && type === Tokens.NEXT) {
         this.cursor += match[0].length;
         return this.next();
       }
       if (match) {
         this.cursor += match[0].length;
-        return new Token(kind, match[0]);
+        return new Token(type, match[0]);
       }
     }
     throw new Error(`Invalid token '${this.input[this.cursor]}' at position ${this.cursor}`);

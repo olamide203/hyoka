@@ -5,7 +5,7 @@ interface IOperator {
     [key:string]: number
 }
 
-export const BINARY_NODE_MAP:{[key:string]:Function} = {
+export const BINARY_NODE_MAP:{[key:string]:(x:ITreeNode, y:ITreeNode)=>ITreeNode} = {
   '+': (x:ITreeNode, y:ITreeNode) => new Nodes.Add(x, y),
   '*': (x:ITreeNode, y:ITreeNode) => new Nodes.Multiply(x, y),
   '-': (x:ITreeNode, y:ITreeNode) => new Nodes.Subtract(x, y),
@@ -20,10 +20,10 @@ export const UNARY_NODE_MAP:{[key:string]:(x:ITreeNode)=>ITreeNode} = {
   '!': (x:ITreeNode) => new Nodes.Factorial(x),
 };
 
-export const FUNC_NODE_MAP:{[key:string]:(x:ITreeNode)=>ITreeNode} = {
-  sin: (x:ITreeNode) => new Nodes.Sine(x),
-  gammln: (x:ITreeNode) => new Nodes.Gammln(x),
-  cos: (x:ITreeNode) => new Nodes.Cosine(x),
+export const FUNC_NODE_MAP:{[key:string]:(x:ITreeNode[])=>ITreeNode} = {
+  sin: (x:ITreeNode[]) => new Nodes.Sine(...x),
+  gammln: (x:ITreeNode[]) => new Nodes.Gammln(...x),
+  cos: (x:ITreeNode[]) => new Nodes.Cosine(...x),
 };
 
 export const UNARY_OPERATOR_PREC:IOperator = {
