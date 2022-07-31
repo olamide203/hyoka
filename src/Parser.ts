@@ -163,26 +163,57 @@ export default class Parser {
     const token = this.lexer.peek();
     switch (token.type) {
       case Tokens.BINARY_INFIX:
-        return this.checkUnary(this.lexer.next());
+        return this.checkBinaryToken();
       case Tokens.RIGHT_PAREN:
-      case Tokens.COMMA:
-        return this.lexer.next();
       case Tokens.UNARY_POSTFIX:
-        return this.checkUnary(this.lexer.next());
+        return this.checkPostfixToken();
       default:
         return this.checkImplicitMultiplication(token);
     }
   }
 
   /**
-   * check if it needs to be converted to a unary operator
+   * helper function to check if a binary token is a valid next token
    */
-  private checkUnary(token:Token):Token {
-    const x = token;
+  private checkBinaryToken():Token {
+    const x = this.lexer.next();
     if (x.isUnaryOperator(this.previousToken)) {
       x.type = Tokens.UNARY_PREFIX;
+      return x;
     }
-    return x;
+    if (x.type === Tokens.BINARY_INFIX) {
+      switch (this.previousToken.type) {
+        case Tokens.BINARY_INFIX:
+        case Tokens.FUNCTION:
+        case Tokens.LEFT_PAREN:
+        case Tokens.END:
+          throw new SyntaxError(`unexpected token '${x.value}'`);
+        default:
+          return x;
+      }
+    }
+    throw new SyntaxError(`unexpected token ${x.value}`);
+  }
+
+  /**
+     * helper function to check if a right parenthesis token is a valid next token
+     * @throws if the token is not a right parenthesis
+     */
+  private checkPostfixToken():Token {
+    const x = this.lexer.next();
+    if (x.type === Tokens.RIGHT_PAREN || x.type === Tokens.UNARY_POSTFIX) {
+      switch (this.previousToken.type) {
+        case Tokens.BINARY_INFIX:
+        case Tokens.FUNCTION:
+        case Tokens.LEFT_PAREN:
+        case Tokens.END:
+        case Tokens.UNARY_PREFIX:
+          throw new SyntaxError(`unexpected token '${x.value}'`);
+        default:
+          return x;
+      }
+    }
+    throw new SyntaxError(`unexpected token '${x.value}'`);
   }
 
   checkImplicitMultiplication(token:Token):Token {
@@ -204,7 +235,6 @@ export default class Parser {
     while (!this.lexer.isAtEnd()) {
       this.previousToken = this.currentToken;
       this.currentToken = this.getNextToken();
-      console.log(this.currentToken);
       // if token is a number, put it into the output queue
       if (this.currentToken.type === Tokens.NUMBER) {
         this.createNode(this.currentToken);
