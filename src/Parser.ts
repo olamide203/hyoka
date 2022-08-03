@@ -33,6 +33,8 @@ export default class Parser {
   }
 
   reset(input:string):void {
+    this.currentToken = this.lexer.next();
+    this.previousToken = this.currentToken;
     this.lexer = new Lexer(input);
     this.operandStack = [];
     this.operatorStack = [];
@@ -106,7 +108,9 @@ export default class Parser {
     if (!top || top.type === Tokens.LEFT_PAREN) {
       return false;
     }
-    return Parser.getTokenPrec(token) <= Parser.getTokenPrec(top);
+    const x = Parser.getTokenPrec(token);
+    const y = Parser.getTokenPrec(top);
+    return x < y || (token.isLeftAssociative() && x === y);
   }
 
   /**
@@ -312,9 +316,3 @@ export default class Parser {
     return this.operandStack[0];
   }
 }
-
-console.time('parse');
-const parser = new Parser();
-const tree = parser.parse('22(3*4-55)+23-44(7-(34+56)+25)');
-console.log(tree.evaluate());
-console.timeEnd('parse');

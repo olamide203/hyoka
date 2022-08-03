@@ -76,4 +76,12 @@ export default class Token implements IToken {
     }
     return false;
   }
+
+  /**
+     * check if a token is left associative
+     *
+     */
+  isLeftAssociative():boolean {
+    return this.type === Tokens.BINARY_INFIX && this.value !== '^';
+  }
 }
