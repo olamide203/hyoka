@@ -38,4 +38,8 @@ export default class Factorial extends TreeNode implements ITreeNode {
     const y = x.plus(1).toString();
     return Decimal.exp(new Gammln(new TreeNode(y)).evaluate()).toString();
   }
+
+  toString(): string {
+    return `(${this.operand.toString()})!`;
+  }
 }
