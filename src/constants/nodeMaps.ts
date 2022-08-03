@@ -1,5 +1,5 @@
-import { ITreeNode } from './nodes/TreeNode';
-import * as Nodes from './nodes';
+import { ITreeNode } from '../nodes/TreeNode';
+import * as Nodes from '../nodes';
 
 interface IOperator {
     [key:string]: number

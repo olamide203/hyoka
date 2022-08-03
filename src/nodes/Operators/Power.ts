@@ -1,5 +1,5 @@
 import Decimal from 'decimal.js';
-import TreeNode, { ITreeNode } from './TreeNode';
+import TreeNode, { ITreeNode } from '../TreeNode';
 
 /**
  * class Power

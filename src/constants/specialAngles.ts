@@ -1,6 +1,6 @@
-import TreeNode from './TreeNode';
-import Divide from './Divide';
-import Power from './Power';
+import TreeNode from '../nodes/TreeNode';
+import Divide from '../nodes/Operators/Divide';
+import Power from '../nodes/Operators/Power';
 
 const a = new TreeNode('0');
 const b = new TreeNode('0.5');

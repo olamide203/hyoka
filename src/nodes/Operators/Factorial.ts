@@ -1,6 +1,6 @@
 import Decimal from 'decimal.js';
-import Gammln from './Gammln';
-import TreeNode, { ITreeNode } from './TreeNode';
+import Gammln from '../Functions/Gammln';
+import TreeNode, { ITreeNode } from '../TreeNode';
 
 /**
  * Factorial node.

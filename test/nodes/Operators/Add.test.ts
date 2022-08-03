@@ -1,8 +1,8 @@
 import {
   beforeEach, describe, expect, it,
 } from 'vitest';
-import TreeNode from '../../src/nodes/TreeNode';
-import Add from '../../src/nodes/Add';
+import TreeNode from '../../../src/nodes/TreeNode';
+import Add from '../../../src/nodes/Operators/Add';
 
 describe('Add', () => {
   let node: TreeNode;

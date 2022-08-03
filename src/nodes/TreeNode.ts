@@ -1,3 +1,7 @@
+export interface Scope {
+    [key: string]: string | number | boolean;
+}
+
 export interface ITreeNode{
     value: string;
     left?: ITreeNode;

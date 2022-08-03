@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import TreeNode from '../../src/nodes/TreeNode';
-import Multiply from '../../src/nodes/Multiply';
+import TreeNode from '../../../src/nodes/TreeNode';
+import Multiply from '../../../src/nodes/Operators/Multiply';
 
 const a = new TreeNode('4');
 const b = new TreeNode('2');

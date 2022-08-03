@@ -1,7 +1,7 @@
 import Decimal from 'decimal.js';
-import { ITreeNode } from './TreeNode';
+import { ITreeNode } from '../TreeNode';
 import TrigFn from './TrigFn';
-import { SPECIAL_ANGLES, QUADRANT_SIGNS } from './constants';
+import { SPECIAL_ANGLES, QUADRANT_SIGNS } from '../../constants/specialAngles';
 
 /**
  * Sine  function node

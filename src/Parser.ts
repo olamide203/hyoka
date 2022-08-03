@@ -5,7 +5,7 @@ import {
   BINARY_NODE_MAP, UNARY_NODE_MAP,
   UNARY_OPERATOR_PREC, BINARAY_OPERATOR_PREC,
   FUNC_NODE_MAP, CONSTANT_NODES,
-} from './constants';
+} from './constants/nodeMaps';
 
 /**
  * Parser to be used by the interpreter
@@ -106,7 +106,7 @@ export default class Parser {
     if (!top || top.type === Tokens.LEFT_PAREN) {
       return false;
     }
-    return Parser.getTokenPrec(token) < Parser.getTokenPrec(top);
+    return Parser.getTokenPrec(token) <= Parser.getTokenPrec(top);
   }
 
   /**
@@ -312,3 +312,9 @@ export default class Parser {
     return this.operandStack[0];
   }
 }
+
+console.time('parse');
+const parser = new Parser();
+const tree = parser.parse('22(3*4-55)+23-44(7-(34+56)+25)');
+console.log(tree.evaluate());
+console.timeEnd('parse');
