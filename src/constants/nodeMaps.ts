@@ -27,6 +27,7 @@ export const FUNC_NODE_MAP:{[key:string]:(x:ITreeNode[])=>ITreeNode} = {
   max: (x:ITreeNode[]) => new Nodes.Max(...x),
   min: (x:ITreeNode[]) => new Nodes.Min(...x),
   tan: (x:ITreeNode[]) => new Nodes.Tan(...x),
+  asin: (x:ITreeNode[]) => new Nodes.Asin(...x),
 };
 
 export const UNARY_OPERATOR_PREC:IOperator = {

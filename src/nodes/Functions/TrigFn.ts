@@ -19,7 +19,7 @@ export default class TrigFn extends TreeNode implements ITreeNode {
     this.operand = operand;
   }
 
-  static angle = 'radians';
+  static angle = 'degrees';
 
   /**
    * convert value from degrees to radians

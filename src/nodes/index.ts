@@ -12,9 +12,10 @@ import Gammln from './Functions/Gammln';
 import Max from './Functions/Max';
 import Min from './Functions/Min';
 import Tan from './Functions/Tan';
+import Asin from './Functions/Asin';
 import Pi from './Pi';
 
 export {
   Add, Divide, Multiply, Subtract, Modulo, TreeNode, Power, Sine, Cosine, Tan, Factorial,
-  Gammln, Pi, Max, Min,
+  Gammln, Pi, Max, Min, Asin,
 };
