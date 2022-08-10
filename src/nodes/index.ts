@@ -9,8 +9,12 @@ import Sine from './Functions/Sine';
 import Cosine from './Functions/Cosine';
 import Factorial from './Operators/Factorial';
 import Gammln from './Functions/Gammln';
-import Pi from './Constants/Pi';
+import Max from './Functions/Max';
+import Min from './Functions/Min';
+import Tan from './Functions/Tan';
+import Pi from './Pi';
 
 export {
-  Add, Divide, Multiply, Subtract, Modulo, TreeNode, Power, Sine, Cosine, Factorial, Gammln, Pi,
+  Add, Divide, Multiply, Subtract, Modulo, TreeNode, Power, Sine, Cosine, Tan, Factorial,
+  Gammln, Pi, Max, Min,
 };
