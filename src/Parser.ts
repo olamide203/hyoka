@@ -316,3 +316,7 @@ export default class Parser {
     return this.operandStack[0];
   }
 }
+
+const x = new Parser();
+const y = x.parse('acos(-1.5)');
+console.log(y.evaluate());

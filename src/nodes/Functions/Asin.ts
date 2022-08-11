@@ -12,7 +12,7 @@ import { ITreeNode } from '../TreeNode';
 export default class Asin extends TrigFn implements ITreeNode {
   constructor(...x:ITreeNode[]) {
     if (x.length !== 1) {
-      throw new SyntaxError(`Asin takes exactly one argument received ${x.length}`);
+      throw new SyntaxError(`asin takes exactly one argument received ${x.length}`);
     }
     super('asin', x[0]);
   }

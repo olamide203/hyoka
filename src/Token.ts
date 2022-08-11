@@ -71,8 +71,8 @@ export default class Token implements IToken {
      */
   isUnaryOperator(token: Token):boolean {
     if (this.value === '+' || this.value === '-') {
-      return token.type === Tokens.BINARY_INFIX
-      || token.type === Tokens.END || token.type === Tokens.UNARY_PREFIX;
+      return token.type === Tokens.BINARY_INFIX || token.type === Tokens.END
+      || token.type === Tokens.UNARY_PREFIX || token.type === Tokens.LEFT_PAREN;
     }
     return false;
   }
