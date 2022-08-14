@@ -3,7 +3,7 @@ import Token, { Tokens } from './Token';
 // specifications for the tokenizer
 const spec:[RegExp, Tokens][] = [
   [/^\d+(\.\d+)?(e[+-]?\d+)?(?!\.)/, Tokens.NUMBER],
-  [/^(sin|cos|tan|log|ln|gammln|max|min|asin|acos)/, Tokens.FUNCTION],
+  [/^(sin|cos|tan|log|ln|gammln|max|min|asin|acos|atam)/, Tokens.FUNCTION],
   [/^(π|pi|e)/, Tokens.CONSTANT],
   [/^[A-Za-z_][A-za-z0-9_]*/, Tokens.ID],
   [/^[/+*%^-]/, Tokens.BINARY_INFIX],
