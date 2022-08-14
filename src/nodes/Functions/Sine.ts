@@ -24,12 +24,11 @@ export default class Sine extends TrigFn implements ITreeNode {
     Decimal.set({ precision: 500 });
     let x = this.operand.evaluate();
     const xx = x;
-    Decimal.set({ precision: 20 });
     if (Sine.angle === 'radians') {
       x = Sine.toDegrees(x).toString();
     }
     const y = Sine.toFirstQuadrant(x);
-
+    Decimal.set({ precision: 20 });
     if (Sine.isSpecialAngle(y)) {
       const z = Sine.getQuadrant(x);
       return new Decimal(QUADRANT_SIGNS.sin[z] + SPECIAL_ANGLES.sin[y].evaluate()).toString();

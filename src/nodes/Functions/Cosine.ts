@@ -24,12 +24,11 @@ export default class Cosine extends TrigFn implements ITreeNode {
     Decimal.set({ precision: 500 });
     let x = this.operand.evaluate();
     const xx = x;
-    Decimal.set({ precision: 20 });
     if (Cosine.angle === 'radians') {
       x = Cosine.toDegrees(x).toString();
     }
     const y = Cosine.toFirstQuadrant(x);
-
+    Decimal.set({ precision: 20 });
     if (Cosine.isSpecialAngle(y)) {
       const z = Cosine.getQuadrant(x);
       return new Decimal(QUADRANT_SIGNS.cos[z] + SPECIAL_ANGLES.cos[y].evaluate()).toString();

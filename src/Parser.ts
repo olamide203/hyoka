@@ -4,8 +4,9 @@ import TreeNode, { ITreeNode } from './nodes/TreeNode';
 import {
   BINARY_NODE_MAP, UNARY_NODE_MAP,
   UNARY_OPERATOR_PREC, BINARAY_OPERATOR_PREC,
-  FUNC_NODE_MAP, CONSTANT_NODES,
+  FUNC_NODE_MAP,
 } from './constants/nodeMaps';
+import { Constant } from './nodes';
 
 /**
  * Parser to be used by the interpreter
@@ -52,7 +53,7 @@ export default class Parser {
         node = new TreeNode(token.value);
         return this.operandStack.push(node);
       case Tokens.CONSTANT:
-        node = CONSTANT_NODES[token.value]();
+        node = new Constant(token.value);
         return this.operandStack.push(node);
       case Tokens.BINARY_INFIX:
         return this.createBinaryNode(token);
@@ -316,7 +317,3 @@ export default class Parser {
     return this.operandStack[0];
   }
 }
-
-const x = new Parser();
-const y = x.parse('acos(-1.5)');
-console.log(y.evaluate());

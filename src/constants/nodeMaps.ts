@@ -45,8 +45,3 @@ export const BINARAY_OPERATOR_PREC:IOperator = {
   '%': 2,
   '^': 3,
 };
-
-export const CONSTANT_NODES:{[key:string]:()=>ITreeNode} = {
-  pi: () => new Nodes.Pi(),
-  π: () => new Nodes.Pi(),
-};
