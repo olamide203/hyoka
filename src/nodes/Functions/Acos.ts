@@ -24,7 +24,7 @@ export default class Acos extends TrigFn implements ITreeNode {
   evaluate() {
     const x = this.operand.evaluate();
     const xx = Decimal.acos(x).toString();
-    if (Acos.angle === 'degrees') {
+    if (Acos.angles === 'deg') {
       const res = Acos.toDegrees(xx).toString();
       return res;
     }

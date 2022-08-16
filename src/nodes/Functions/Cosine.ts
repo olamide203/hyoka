@@ -24,7 +24,7 @@ export default class Cosine extends TrigFn implements ITreeNode {
     Decimal.set({ precision: 500 });
     let x = this.operand.evaluate();
     const xx = x;
-    if (Cosine.angle === 'radians') {
+    if (Cosine.angles === 'rad') {
       x = Cosine.toDegrees(x).toString();
     }
     const y = Cosine.toFirstQuadrant(x);
@@ -33,7 +33,7 @@ export default class Cosine extends TrigFn implements ITreeNode {
       const z = Cosine.getQuadrant(x);
       return new Decimal(QUADRANT_SIGNS.cos[z] + SPECIAL_ANGLES.cos[y].evaluate()).toString();
     }
-    if (Cosine.angle === 'degrees') {
+    if (Cosine.angles === 'deg') {
       return Cosine.toRadins(xx).cos().toString();
     }
     return Decimal.cos(xx).toString();

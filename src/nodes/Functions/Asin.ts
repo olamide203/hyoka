@@ -24,7 +24,7 @@ export default class Asin extends TrigFn implements ITreeNode {
   evaluate():string {
     const x = this.operand.evaluate();
     const xx = Decimal.asin(x).toString();
-    if (Asin.angle === 'degrees') {
+    if (Asin.angles === 'deg') {
       const res = Asin.toDegrees(xx).toString();
       return res;
     }

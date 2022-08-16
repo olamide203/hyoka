@@ -24,7 +24,7 @@ export default class Atan extends TrigFn implements ITreeNode {
   evaluate():string {
     const x = this.operand.evaluate();
     const xx = Decimal.atan(x).toString();
-    if (Atan.angle === 'degrees') {
+    if (Atan.angles === 'deg') {
       const res = Atan.toDegrees(xx).toString();
       return res;
     }

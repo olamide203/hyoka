@@ -24,7 +24,7 @@ export default class Sine extends TrigFn implements ITreeNode {
     Decimal.set({ precision: 500 });
     let x = this.operand.evaluate();
     const xx = x;
-    if (Sine.angle === 'radians') {
+    if (Sine.angles === 'rad') {
       x = Sine.toDegrees(x).toString();
     }
     const y = Sine.toFirstQuadrant(x);
@@ -33,7 +33,7 @@ export default class Sine extends TrigFn implements ITreeNode {
       const z = Sine.getQuadrant(x);
       return new Decimal(QUADRANT_SIGNS.sin[z] + SPECIAL_ANGLES.sin[y].evaluate()).toString();
     }
-    if (Sine.angle === 'degrees') {
+    if (Sine.angles === 'deg') {
       return Sine.toRadins(xx).sin().toString();
     }
     return Decimal.sin(xx).toString();

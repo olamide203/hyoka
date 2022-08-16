@@ -26,7 +26,7 @@ export default class Tan extends TrigFn implements ITreeNode {
     Decimal.set({ precision: 500 });
     let x = this.operand.evaluate();
     const xx = x;
-    if (Tan.angle === 'radians') {
+    if (Tan.angles === 'rad') {
       x = Tan.toDegrees(x).toString();
     }
     const y = Tan.toFirstQuadrant(x);
@@ -35,7 +35,7 @@ export default class Tan extends TrigFn implements ITreeNode {
       const z = Tan.getQuadrant(x);
       return new Decimal(QUADRANT_SIGNS.sin[z] + SPECIAL_ANGLES.sin[y].evaluate()).toString();
     }
-    if (Tan.angle === 'degrees') {
+    if (Tan.angles === 'deg') {
       return Tan.toRadins(xx).sin().toString();
     }
     return Decimal.sin(xx).toString();
