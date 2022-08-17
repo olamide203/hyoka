@@ -317,3 +317,9 @@ export default class Parser {
     return this.operandStack[0];
   }
 }
+
+// import Expression from 'MathExpression'
+// Expression.config({angle: 'deg'});
+// cont a = new Expression('1+2*3');
+// const y = a.evaluate();
+// console.log(y);

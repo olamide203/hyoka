@@ -1,6 +1,6 @@
 import Decimal from 'decimal.js';
 
-interface Config extends Decimal.Config {
+export interface Config extends Decimal.Config {
     angles?: 'deg' | 'rad';
 }
 
