@@ -2,7 +2,7 @@
   "name": "mathexpression",
   "packageManager": "pnpm@7.3.0",
   "type": "module",
-  "description": "A lightweight Math library for javascript",
+  "description": "A simple math expression parser and evaluator",
   "version": "1.0.0",
   "main": "./dist/cjs/mathExpression.js",
   "module": "./dist/esm/mathExpression.js",
