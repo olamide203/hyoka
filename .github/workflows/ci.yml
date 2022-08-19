@@ -27,7 +27,7 @@ jobs:
 
       - name: Lint
         run: pnpm run lint
-    typecheck:
+  typecheck:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -48,7 +48,6 @@ jobs:
 
       - name: Typecheck
         run: pnpm run typecheck
-
   test:
     runs-on: ${{ matrix.os }}
 
