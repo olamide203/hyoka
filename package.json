@@ -1,10 +1,11 @@
 {
-  "name": "evaluate.js",
+  "name": "math-expression",
   "packageManager": "pnpm@7.3.0",
   "type": "module",
   "description": "A lightweight Math library for javascript",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "cjs/mathExpression.js",
+  "module": "esm/mathExpression.js",
   "directories": {
     "test": "test"
   },
@@ -14,7 +15,8 @@
     "lint:fix": "eslint src/**/*.ts test/**/*.ts --fix",
     "prepare": "husky install",
     "test": "vitest run",
-    "test:dev": "vitest"
+    "test:dev": "vitest",
+    "build": "tsc && rollup -c"
   },
   "lint-staged": {
     "*.(ts|js)": "eslint --fix"
@@ -35,7 +37,7 @@
   },
   "homepage": "https://github.com/olamide203/evaluatejs#readme",
   "devDependencies": {
-    "@rollup/plugin-typescript": "^8.3.4",
+    "@rollup/plugin-node-resolve": "^13.3.0",
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
     "cz-conventional-changelog": "3.3.0",
@@ -47,6 +49,9 @@
     "lint-staged": "^13.0.3",
     "rollup": "^2.75.7",
     "rollup-plugin-dts": "^4.2.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.32.1",
+    "tslib": "^2.4.0",
     "tsx": "^3.6.0",
     "typescript": "^4.7.4",
     "vite": "^2.9.13",

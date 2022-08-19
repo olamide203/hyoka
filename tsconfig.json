@@ -11,10 +11,10 @@
     "module": "esnext",
     "moduleResolution": "node",
     "target": "ES5",
-    "declarationDir": "./dist/types",
+    "declarationDir": "./build/types",
     "declarationMap": true,
-    "outDir": "./dist",
+    "outDir": "./build",
   },
   "include": ["src/**/*"],
-  "exclude": ["dist"]
+  "exclude": ["node_modules", "build"],
 }
