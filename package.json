@@ -1,11 +1,11 @@
 {
-  "name": "math-expression",
+  "name": "mathexpression",
   "packageManager": "pnpm@7.3.0",
   "type": "module",
   "description": "A lightweight Math library for javascript",
   "version": "1.0.0",
-  "main": "cjs/mathExpression.js",
-  "module": "esm/mathExpression.js",
+  "main": "./dist/cjs/mathExpression.js",
+  "module": "./dist/esm/mathExpression.js",
   "directories": {
     "test": "test"
   },
@@ -15,9 +15,13 @@
     "lint:fix": "eslint src/**/*.ts test/**/*.ts --fix",
     "prepare": "husky install",
     "test": "vitest run",
+    "typecheck": "tsc --noEmit",
     "test:dev": "vitest",
     "build": "tsc && rollup -c"
   },
+  "files":[
+    "dist"
+  ],
   "lint-staged": {
     "*.(ts|js)": "eslint --fix"
   },
