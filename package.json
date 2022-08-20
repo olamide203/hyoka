@@ -3,7 +3,7 @@
   "packageManager": "pnpm@7.3.0",
   "type": "module",
   "description": "A simple math expression parser and evaluator",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "main": "./dist/cjs/mathExpression.js",
   "module": "./dist/esm/mathExpression.js",
   "directories": {
@@ -17,9 +17,10 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "test:dev": "vitest",
-    "build": "tsc && rollup -c"
+    "build": "tsc && rollup -c",
+    "semantic-release": "semantic-release"
   },
-  "files":[
+  "files": [
     "dist"
   ],
   "lint-staged": {
@@ -32,14 +33,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/olamide203/evaluatejs.git"
+    "url": "https://github.com/olamide203/MathExpression"
   },
   "author": "Olamide Atitebi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/olamide203/evaluatejs/issues"
+    "url": "https://github.com/olamide203/MathExpression/issues"
   },
-  "homepage": "https://github.com/olamide203/evaluatejs#readme",
+  "homepage": "https://github.com/olamide203/MathExpression#readme",
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@typescript-eslint/eslint-plugin": "latest",
@@ -59,7 +60,8 @@
     "tsx": "^3.6.0",
     "typescript": "^4.7.4",
     "vite": "^2.9.13",
-    "vitest": "^0.16.0"
+    "vitest": "^0.16.0",
+    "semantic-release": "^19.0.3"
   },
   "dependencies": {
     "decimal.js": "^10.3.1"
