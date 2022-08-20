@@ -18,7 +18,7 @@
     "typecheck": "tsc --noEmit",
     "test:dev": "vitest",
     "build": "tsc && rollup -c",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release --branches main"
   },
   "files": [
     "dist"
