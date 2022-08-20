@@ -2,7 +2,8 @@ name: Release
 
 on:
   workflow_run:
-    workflows: ['CI']
+    workflows:
+      - CI
     branches: [main]
     types: 
       - completed
@@ -27,5 +28,5 @@ jobs:
       - name: semantic-release
         run: pnpm run semantic-release
         env:
-          NPM_TOKEN: ${{secretes.NPM_TOKEN}}
-          GITHUB_TOKEN: ${{secretes.GITHUB_TOKEN}}
+          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
