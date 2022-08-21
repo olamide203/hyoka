@@ -1,16 +1,12 @@
-name: Release
-
+name: Releases
 on:
-  workflow_run:
-    workflows:
-      - CI
-    branches: [main]
-    types: 
-      - completed
+  push:
+    branches:
+      - main
+
 jobs:
-  Release:
+  lint:
     runs-on: ubuntu-latest
-    if: ${{github.event.workflow_run.conclusion == 'success'}}
     steps:
       - uses: actions/checkout@v3
 
@@ -25,8 +21,73 @@ jobs:
       - name: Install
         run: pnpm i
 
-      - name: semantic-release
-        run: pnpm run semantic-release
+      - name: Lint
+        run: pnpm run lint
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Set node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+
+      - name: Install
+        run: pnpm i
+        
+      - name: Typecheck
+        run: pnpm run typecheck
+  test:
+    runs-on: ${{ matrix.os }}
+
+    timeout-minutes: 20
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node_version: [16, 18]
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+
+      - name: Set node version to ${{ matrix.node_version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node_version }}
+
+      - name: Install
+        run: pnpm i
+
+      - name: Test
+        run: pnpm run test
+  changelog:
+    needs: [lint, typecheck, test]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: conventional Changelog Action
+        id: changelog
+        uses: TriPSs/conventional-changelog-action@v3.7.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          version-file: './package.json,./package-lock.json'
+
+      - name: create release
+        uses: actions/create-release@v1
+        if: ${{ steps.changelog.outputs.skipped == 'false' }}
         env:
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.changelog.outputs.tag }}
+          release_name: ${{ steps.changelog.outputs.tag }}
+          body: ${{ steps.changelog.outputs.clean_changelog }}

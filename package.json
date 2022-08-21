@@ -1,9 +1,9 @@
 {
-  "name": "mathexpression",
+  "name": "@olamide203/math-expression",
   "packageManager": "pnpm@7.3.0",
   "type": "module",
   "description": "A simple math expression parser and evaluator",
-  "version": "0.0.0-development",
+  "version": "0.0.0",
   "main": "./dist/cjs/mathExpression.js",
   "module": "./dist/esm/mathExpression.js",
   "directories": {
@@ -60,8 +60,7 @@
     "tsx": "^3.6.0",
     "typescript": "^4.7.4",
     "vite": "^2.9.13",
-    "vitest": "^0.16.0",
-    "semantic-release": "^19.0.3"
+    "vitest": "^0.16.0"
   },
   "dependencies": {
     "decimal.js": "^10.3.1"
