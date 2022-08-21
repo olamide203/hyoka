@@ -3,7 +3,7 @@
   "packageManager": "pnpm@7.3.0",
   "type": "module",
   "description": "A simple math expression parser and evaluator",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "./dist/cjs/mathExpression.js",
   "module": "./dist/esm/mathExpression.js",
   "directories": {
