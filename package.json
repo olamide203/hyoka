@@ -1,5 +1,5 @@
 {
-  "name": "math-eval",
+  "name": "@olamide203/math-expression",
   "packageManager": "pnpm@7.3.0",
   "type": "module",
   "description": "A simple math expression parser and evaluator",
