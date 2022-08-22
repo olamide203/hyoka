@@ -1,5 +1,5 @@
 {
-  "name": "@olamide203/math-expression",
+  "name": "math-eval",
   "packageManager": "pnpm@7.3.0",
   "type": "module",
   "description": "A simple math expression parser and evaluator",
@@ -31,16 +31,22 @@
       "path": "cz-conventional-changelog"
     }
   },
+  "keywords": [
+    "math",
+    "expression",
+    "parser",
+    "evaluator"
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/olamide203/MathExpression"
+    "url": "https://github.com/olamide203/math-expression"
   },
   "author": "Olamide Atitebi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/olamide203/MathExpression/issues"
+    "url": "https://github.com/olamide203/math-expression/issues"
   },
-  "homepage": "https://github.com/olamide203/MathExpression#readme",
+  "homepage": "https://github.com/olamide203/math-expression#readme",
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@typescript-eslint/eslint-plugin": "latest",
