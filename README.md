@@ -10,9 +10,9 @@ MathExpression is a simple math expression parser and evaluator for JavaScript a
 
 MathExpression can be used in both node.js and in the browser.
 
-Install via [npm](https://www.npmjs.com/package/mathjs):
+Install via [npm](https://www.npmjs.com/package/@olamide203/math-expression):
 
-    npm install @olamide203/math-expression
+    npm install @olamide203/math-express
 
 ```js
 import MathExpression from '@olamide203/math-expression';
