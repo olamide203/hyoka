@@ -5,21 +5,39 @@
 <!-- description -->
 MathExpression is a simple math expression parser and evaluator for JavaScript and TypeScript.
 
-
-## Usage
+## Features
+- supports implicit multiplication and parenthesis grouping
+- Binary and unary operators are supported
+- supports mathematical functions
+- Precision and rounding mode can be configured
+## Installation
 
 MathExpression can be used in both node.js and in the browser.
 
 Install via [npm](https://www.npmjs.com/package/@olamide203/math-expression):
 
-    npm install @olamide203/math-express
+```bash
+npm install @olamide203/math-expression
+```
+## Usage
 
 ```js
 import MathExpression from '@olamide203/math-expression';
 
-const x = new MathExpression('0.1 + 0.2');
-x.evaluate(); // 0.3
+new MathExpression('0.1 + 0.2').evaluate(); // 0.3
+new MathExpression('2 * 6 / 3').evaluate(); // 4
 
-const y = new MathExpression('cos(sin(π))')
-y.evaluate(); // 0
+// using unary prefix operators
+new MathExpression('- 1 + 2').evaluate(); // 1
+new MathExpression('+ 1 - - 2').evaluate(); // 3
+
+// implicit multiplication
+new MathExpression('2(6 / 3)').evaluate(); // 4
+
+//Trig Functions
+new MathExpression('sin(π)').evaluate(); // 0
+new MathExpression('cos(pi / 2)').evaluate(); // -0.5
+
+// Even more complex expressions
+new MathExpression('2(4(6 / 3 + 2) + 2^3 / - 2(2.5!))').evaluate(); //5.413192236417259652
 ```
