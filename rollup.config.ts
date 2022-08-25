@@ -3,7 +3,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import dts from 'rollup-plugin-dts';
 
 export default [{
-  input: 'build/MathExpression.js',
+  input: 'build/Expression.js',
   output: {
     file: 'dist/umd/hyoka.js',
     format: 'umd',
@@ -15,22 +15,20 @@ export default [{
     nodeResolve(),
   ],
 }, {
-  input: 'build/MathExpression.js',
+  input: 'build/Expression.js',
   output: [{
     file: 'dist/esm/hyoka.js',
     format: 'esm',
-    exports: 'default',
   },
   {
     file: 'dist/cjs/hyoka.js',
     format: 'cjs',
-    exports: 'default',
   }],
   plugins: [nodeResolve()],
   external: ['decimal.js'],
 },
 {
-  input: 'build/types/MathExpression.d.ts',
+  input: 'build/types/Expression.d.ts',
   output: {
     file: 'dist/types/index.d.ts',
     format: 'es',

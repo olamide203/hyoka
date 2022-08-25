@@ -3,10 +3,10 @@ import { TreeNode } from './nodes';
 import { Config } from './nodes/TreeNode';
 /**
  * Expression class for parsing and evaluating expressions.
- * @class MathExpression
+ * @class Expression
  */
-
-export default class MathExpression {
+/* eslint-disable import/prefer-default-export */
+export class Expression {
   parentNode: TreeNode;
 
   constructor(expression: string) {

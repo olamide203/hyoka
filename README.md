@@ -12,7 +12,7 @@ hyoka is a simple math expression parser and evaluator for JavaScript and TypeSc
 - Precision and rounding mode can be configured
 ## Installation
 
-MathExpression can be used in both node.js and in the browser.
+This library can be used in both node.js and in the browser.
 
 Using [npm](https://www.npmjs.com/package/@olamide203/hyoka):
 
@@ -26,36 +26,36 @@ Using [yarn](https://yarnpkg.com/en/package/@olamide203/hyoka):
 yarn add @olamide203/hyoka
 ```
 
-Load the library in the browser:
+in the browser:
 - UMD
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@olamide203/hyoka@0.1.1/dist/umd/mathExpression.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/hyoka@latest/dist/umd/hyoka.js"></script>
 ```
 - ESM
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@olamide203/hyoka@0.1.1/dist/esm/mathExpression.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/npm/hyoka@latest/dist/esm/hyoka.js" type="module"></script>
 ```
 
 
 ## Usage
 
 ```js
-import MathExpression from 'hyoka';
+import {Expression} from 'hyoka';
 
-new MathExpression('0.1 + 0.2').evaluate(); // 0.3
-new MathExpression('2 * 6 / 3').evaluate(); // 4
+new Expression('0.1 + 0.2').evaluate(); // 0.3
+new Expression('2 * 6 / 3').evaluate(); // 4
 
 // using unary prefix operators
-new MathExpression('- 1 + 2').evaluate(); // 1
-new MathExpression('+ 1 - - 2').evaluate(); // 3
+new Expression('- 1 + 2').evaluate(); // 1
+new Expression('+ 1 - - 2').evaluate(); // 3
 
 // implicit multiplication
-new MathExpression('2(6 / 3)').evaluate(); // 4
+new Expression('2(6 / 3)').evaluate(); // 4
 
 //Trig Functions
-new MathExpression('sin(π)').evaluate(); // 0
-new MathExpression('cos(pi / 2)').evaluate(); // -0.5
+new Expression('sin(π)').evaluate(); // 0
+new Expression('cos(pi / 2)').evaluate(); // -0.5
 
 // Even more complex expressions
-new MathExpression('2(4(6 / 3 + 2) + 2^3 / - 2(2.5!))').evaluate(); //5.413192236417259652
+new Expression('2(4(6 / 3 + 2) + 2^3 / - 2(2.5!))').evaluate(); //5.413192236417259652
 ```

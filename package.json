@@ -21,7 +21,7 @@
     "build": "tsc && rollup -c"
   },
   "files": [
-    "/dist"
+    "dist"
   ],
   "lint-staged": {
     "*.(ts|js)": "eslint --fix"
