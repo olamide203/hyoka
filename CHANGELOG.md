@@ -1,3 +1,12 @@
+## [1.0.2](https://github.com/olamide203/hyoka/compare/v1.0.1...v1.0.2) (2022-08-25)
+
+
+### Bug Fixes
+
+* fix error in package.json ([a1e0b29](https://github.com/olamide203/hyoka/commit/a1e0b29ec4485242a3a2648ad0b57dbd47077ae7))
+
+
+
 ## [1.0.1](https://github.com/olamide203/hyoka/compare/v1.0.0...v1.0.1) (2022-08-25)
 
 
