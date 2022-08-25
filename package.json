@@ -1,5 +1,5 @@
 {
-  "name": "@olamide203/hyoka",
+  "name": "hyoka",
   "packageManager": "pnpm@7.3.0",
   "type": "module",
   "description": "A simple math expression parser and evaluator",
