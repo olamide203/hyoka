@@ -5,7 +5,7 @@ import dts from 'rollup-plugin-dts';
 export default [{
   input: 'build/MathExpression.js',
   output: {
-    file: 'dist/umd/mathExpression.js',
+    file: 'dist/umd/hyoka.js',
     format: 'umd',
     name: 'MathExpression',
     esModule: false,
@@ -17,12 +17,12 @@ export default [{
 }, {
   input: 'build/MathExpression.js',
   output: [{
-    file: 'dist/esm/mathExpression.js',
+    file: 'dist/esm/hyoka.js',
     format: 'esm',
     exports: 'default',
   },
   {
-    file: 'dist/cjs/mathExpression.js',
+    file: 'dist/cjs/hyoka.js',
     format: 'cjs',
     exports: 'default',
   }],
@@ -32,7 +32,7 @@ export default [{
 {
   input: 'build/types/MathExpression.d.ts',
   output: {
-    file: 'dist/types/mathExpression.d.ts',
+    file: 'dist/types/index.d.ts',
     format: 'es',
   },
   plugins: [dts()],

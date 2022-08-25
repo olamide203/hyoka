@@ -1,11 +1,12 @@
 {
-  "name": "@olamide203/math-expression",
+  "name": "@olamide203/hyoka",
   "packageManager": "pnpm@7.3.0",
   "type": "module",
   "description": "A simple math expression parser and evaluator",
   "version": "0.1.1",
-  "main": "./dist/cjs/mathExpression.js",
-  "module": "./dist/esm/mathExpression.js",
+  "main": "./dist/cjs/hyoka.js",
+  "module": "./dist/esm/hyoka.js",
+  "types": "./dist/types/index.d.ts",
   "directories": {
     "test": "test"
   },
@@ -17,11 +18,10 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "test:dev": "vitest",
-    "build": "tsc && rollup -c",
-    "semantic-release": "semantic-release --branches main"
+    "build": "tsc && rollup -c"
   },
   "files": [
-    "dist"
+    "/dist"
   ],
   "lint-staged": {
     "*.(ts|js)": "eslint --fix"
@@ -39,14 +39,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/olamide203/math-expression"
+    "url": "https://github.com/olamide203/hyoka"
   },
   "author": "Olamide Atitebi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/olamide203/math-expression/issues"
+    "url": "https://github.com/olamide203/hyoka/issues"
   },
-  "homepage": "https://github.com/olamide203/math-expression#readme",
+  "homepage": "https://github.com/olamide203/hyoka#readme",
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@typescript-eslint/eslint-plugin": "latest",
