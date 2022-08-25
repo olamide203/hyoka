@@ -7,6 +7,13 @@
   "main": "./dist/cjs/hyoka.js",
   "module": "./dist/esm/hyoka.js",
   "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/hyoka.js",
+      "import": "./dist/esm/hyoka.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
   "directories": {
     "test": "test"
   },
