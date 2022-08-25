@@ -1,3 +1,12 @@
+## [1.0.1](https://github.com/olamide203/hyoka/compare/v1.0.0...v1.0.1) (2022-08-25)
+
+
+### Bug Fixes
+
+* use named export ([8f1f7c3](https://github.com/olamide203/hyoka/commit/8f1f7c351dcafe51dfbb29604446a5c6a314bf40))
+
+
+
 # [1.0.0](https://github.com/olamide203/hyoka/compare/v0.1.1...v1.0.0) (2022-08-25)
 
 
