@@ -1,5 +1,5 @@
 # hyoka
-[![Version](https://img.shields.io/npm/v/@olamide203/hyoka.svg)](https://www.npmjs.com/package/hyoka) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/olamide203/hyoka/blob/main/LICENSE) [![GitHub release (latest by date)](https://img.shields.io/github/v/release/olamide203/hyoka?)](https://github.com/olamide203/hyoka/releases) [![Build Status](https://github.com/olamide203/hyoka/workflows/CI/badge.svg)](https://github.com/olamide203/hyoka/actions)
+[![Version](https://img.shields.io/npm/v/hyoka.svg)](https://www.npmjs.com/package/hyoka) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/olamide203/hyoka/blob/main/LICENSE) [![GitHub release (latest by date)](https://img.shields.io/github/v/release/olamide203/hyoka?)](https://github.com/olamide203/hyoka/releases) [![Build Status](https://github.com/olamide203/hyoka/workflows/CI/badge.svg)](https://github.com/olamide203/hyoka/actions)
 
 
 <!-- description -->
