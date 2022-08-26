@@ -33,7 +33,7 @@ in the browser:
 ```
 - ESM
 ```html
-<script src="https://cdn.jsdelivr.net/npm/hyoka@latest/dist/esm/hyoka.js" type="module"></script>
+<script src="https://cdn.jsdelivr.net/npm/hyoka@latest/dist/esm/hyoka.mjs" type="module"></script>
 ```
 
 
