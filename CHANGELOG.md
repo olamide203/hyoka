@@ -1,3 +1,12 @@
+## [1.0.5](https://github.com/olamide203/hyoka/compare/v1.0.3...v1.0.5) (2022-08-26)
+
+
+### Bug Fixes
+
+* minor version bump ([fee8a6f](https://github.com/olamide203/hyoka/commit/fee8a6f6c9d2f0aa36fd6a4a92309863cfdf84df))
+
+
+
 ## [1.0.3](https://github.com/olamide203/hyoka/compare/v1.0.2...v1.0.3) (2022-08-25)
 
 
@@ -36,15 +45,6 @@
 ### BREAKING CHANGES
 
 * package name has been changed to hyoka
-
-
-
-## [0.1.1](https://github.com/olamide203/hyoka/compare/v0.1.0...v0.1.1) (2022-08-23)
-
-
-### Bug Fixes
-
-* **readme:** fix typo in readme file ([b4aef2e](https://github.com/olamide203/hyoka/commit/b4aef2ef9d504537eb68a3483e1b400b13bdfb9d))
 
 
 
