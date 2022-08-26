@@ -4,12 +4,12 @@
   "description": "A simple math expression parser and evaluator",
   "version": "1.0.5",
   "main": "./dist/cjs/hyoka.js",
-  "module": "./dist/esm/hyoka.js",
+  "module": "./dist/esm/hyoka.mjs",
   "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
       "require": "./dist/cjs/hyoka.js",
-      "import": "./dist/esm/hyoka.js",
+      "import": "./dist/esm/hyoka.mjs",
       "types": "./dist/types/index.d.ts"
     }
   },

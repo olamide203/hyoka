@@ -17,7 +17,7 @@ export default [{
 }, {
   input: 'build/Expression.js',
   output: [{
-    file: 'dist/esm/hyoka.js',
+    file: 'dist/esm/hyoka.mjs',
     format: 'esm',
   },
   {
