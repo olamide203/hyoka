@@ -1,4 +1,4 @@
-blank_issues_enabled: false
+blank_issues_enabled: true
 contact_links:
   - name: Question & Discussions
     url: https://github.com/olamide203/hyoka/discussions
