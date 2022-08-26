@@ -5,14 +5,14 @@ labels: ["bug"]
 body:
   - type: markdown
     attributes:
-    value: "## Thanks for taking the time to fill out this bug report!"
+      value: "## Thanks for taking the time to fill out this bug report!"
   - type: checkboxes
     attributes:
-    label: is there an existing issue for this?
-    description: please check if an issue already exists for the bug you encountered
-    options:
-      label: I have searched the existing issues
-      required: true
+      label: is there an existing issue for this?
+      description: please check if an issue already exists for the bug you encountered
+      options:
+        label: I have searched the existing issues
+        required: true
   - type: textarea
     attributes: 
       label: Current Behaviour
