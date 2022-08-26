@@ -2,7 +2,7 @@
   "name": "hyoka",
   "packageManager": "pnpm@7.3.0",
   "description": "A simple math expression parser and evaluator",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "./dist/cjs/hyoka.js",
   "module": "./dist/esm/hyoka.mjs",
   "types": "./dist/types/index.d.ts",

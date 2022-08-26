@@ -1,3 +1,12 @@
+## [1.0.6](https://github.com/olamide203/hyoka/compare/v1.0.5...v1.0.6) (2022-08-26)
+
+
+### Bug Fixes
+
+* fix esm bundle error ([0f1409f](https://github.com/olamide203/hyoka/commit/0f1409fca60b40a7c6563cc815123a5163863ce6))
+
+
+
 ## [1.0.5](https://github.com/olamide203/hyoka/compare/v1.0.3...v1.0.5) (2022-08-26)
 
 
@@ -31,20 +40,6 @@
 ### Bug Fixes
 
 * use named export ([8f1f7c3](https://github.com/olamide203/hyoka/commit/8f1f7c351dcafe51dfbb29604446a5c6a314bf40))
-
-
-
-# [1.0.0](https://github.com/olamide203/hyoka/compare/v0.1.1...v1.0.0) (2022-08-25)
-
-
-### Features
-
-* rename package ([7a8ee07](https://github.com/olamide203/hyoka/commit/7a8ee0793cf8bdc465f446e9970aa04fd0b800a8))
-
-
-### BREAKING CHANGES
-
-* package name has been changed to hyoka
 
 
 
