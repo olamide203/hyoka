@@ -43,7 +43,7 @@ in the browser:
 // using ES6 import
 import {Expression} from 'hyoka';
 // or using require
-const Expression = require('hyoka');
+const { Expression } = require('hyoka');
 ```
 
 ```js
