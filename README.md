@@ -85,3 +85,106 @@ Expression.config({
 
 new Expression('sin(30)').evaluate(); // 0.5
 ```
+## Supported Operators
+<table>
+  <tr>
+    <th>Operator</th>
+    <th>Description</th>
+    <th>type</th>
+    <th>Associativity</th>
+  </tr>
+  <tr>
+    <td>+</td>
+    <td>Addition</td>
+    <td>Binary Infix</td>
+    <td>Left</td>
+  </tr>
+  <tr>
+    <td>-</td>
+    <td>Subtraction</td>
+    <td>Binary Infix</td>
+    <td>Left</td>
+  </tr>
+  <tr>
+    <td>*</td>
+    <td>Multiplication</td>
+    <td>Binary Infix</td>
+    <td>Left</td>
+  </tr>
+  <tr>
+    <td>/</td>
+    <td>Division</td>
+    <td>Binary Infix</td>
+    <td>Left</td>
+  </tr>
+  <tr>
+    <td>%</td>
+    <td>Modulo</td>
+    <td>Binary Infix</td>
+    <td>Left</td>
+  </tr>
+  <tr>
+    <td>^</td>
+    <td>Exponentiation</td>
+    <td>Binary Infix</td>
+    <td>Right</td>
+  </tr>
+  <tr>
+    <td>-</td>
+    <td>Unary minus</td>
+    <td>Unary Prefix</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>+</td>
+    <td>Unary plus</td>
+    <td>Unary Prefix</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>!</td>
+    <td>Factorial</td>
+    <td>Unary Postfix</td>
+    <td></td>
+  </tr>
+</table>
+
+## Supported Functions
+<table>
+  <tr>
+    <th>Function</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>acos</td>
+    <td>returns the inverse cosine of an expression</td>
+  </tr>
+  <tr>
+    <td>asin</td>
+    <td>returns the inverse sine of an expression</td>
+  </tr>
+  <tr>
+    <td>atan</td>
+    <td>returns the inverse tangent of an expression</td>
+  </tr>
+  <tr>
+    <td>cos</td>
+    <td>returns the cosine of an expression</td>
+  </tr>
+  <tr>
+    <td>gammln</td>
+    <td>returns the natural log of Γ(x) where x is a valid expression</td>
+  </tr>
+  <tr>
+    <td>max</td>
+    <td>returns the maximum value from a set of expressions</td>
+  </tr>
+  <tr>
+    <td>min</td>
+    <td>returns the minimum value from a set of expressions</td>
+  </tr>
+  <tr>
+    <td>sin</td>
+    <td>returns the sine of an expression</td>
+  </tr>
+</table>
