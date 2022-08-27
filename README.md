@@ -59,3 +59,28 @@ new Expression('cos(pi / 2)').evaluate(); // -0.5
 // Even more complex expressions
 new Expression('2(4(6 / 3 + 2) + 2^3 / - 2(2.5!))').evaluate(); //5.413192236417259652
 ```
+## Configuration
+
+hyoka configuration extends that of [decimal.js](https://mikemcl.github.io/decimal.js/). theis means that all configuration options of decimal.js are available. the following configuration options are available:
+- `precision`: the number of digits of precision to use
+- `rounding`: the rounding mode to use
+- `modulo`: the modulo to use
+- `toExpNeg`: the exponent of 10 to use for negative zero
+- `toExpPos`: the exponent of 10 to use for positive zero
+- `minE`: the minimum exponent value
+- `maxE`: the maximum exponent value
+- `crypto`: whether to use the crypto module for random number generation
+- `angles`: the unit of angles to use for trig functions
+The config options can be set using the `config` method on the `Expression` class:
+
+
+```js
+import {Expression} from 'hyoka';
+Expression.config({
+  precision: 20,
+  rounding: 4,
+  angles: 'degrees'
+});
+
+new Expression('sin(30)').evaluate(); // 0.5
+```
