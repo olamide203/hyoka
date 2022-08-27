@@ -71,6 +71,7 @@ hyoka configuration extends that of [decimal.js](https://mikemcl.github.io/decim
 - `maxE`: the maximum exponent value
 - `crypto`: whether to use the crypto module for random number generation
 - `angles`: the unit of angles to use for trig functions
+  
 The config options can be set using the `config` method on the `Expression` class:
 
 
