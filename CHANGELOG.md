@@ -1,3 +1,12 @@
+## [1.0.7](https://github.com/olamide203/hyoka/compare/v1.0.6...v1.0.7) (2022-08-27)
+
+
+### Bug Fixes
+
+* **lexer:** correct typo in lexer ([#9](https://github.com/olamide203/hyoka/issues/9)) ([434b9cf](https://github.com/olamide203/hyoka/commit/434b9cf2d2e6c95adbf31e36ea84b94787c0003a)), closes [#8](https://github.com/olamide203/hyoka/issues/8)
+
+
+
 ## [1.0.6](https://github.com/olamide203/hyoka/compare/v1.0.5...v1.0.6) (2022-08-26)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * fix error in package.json ([a1e0b29](https://github.com/olamide203/hyoka/commit/a1e0b29ec4485242a3a2648ad0b57dbd47077ae7))
-
-
-
-## [1.0.1](https://github.com/olamide203/hyoka/compare/v1.0.0...v1.0.1) (2022-08-25)
-
-
-### Bug Fixes
-
-* use named export ([8f1f7c3](https://github.com/olamide203/hyoka/commit/8f1f7c351dcafe51dfbb29604446a5c6a314bf40))
 
 
 
