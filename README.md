@@ -187,4 +187,8 @@ new Expression('sin(30)').evaluate(); // 0.5
     <td>sin</td>
     <td>returns the sine of an expression</td>
   </tr>
+  <tr>
+    <td>tan</td>
+    <td>returns the tangent of an expression</td>
+  </tr>
 </table>
