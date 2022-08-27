@@ -40,8 +40,13 @@ in the browser:
 ## Usage
 
 ```js
+// using ES6 import
 import {Expression} from 'hyoka';
+// or using require
+const Expression = require('hyoka');
+```
 
+```js
 new Expression('0.1 + 0.2').evaluate(); // 0.3
 new Expression('2 * 6 / 3').evaluate(); // 4
 
