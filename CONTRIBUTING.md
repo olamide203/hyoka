@@ -22,7 +22,7 @@ Before you submit a pull request, please make sure the following is done:
 - open a pull request.
 
 
-## commit messages
+## Commit Messages
 
 commit messages should follow the [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) specification. we recommend using [commitizen](https://github.com/commitizen/cz-cli) to help you write commit messages that follow the specification.
 
