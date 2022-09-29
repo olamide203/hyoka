@@ -15,9 +15,10 @@ import Tan from './Functions/Tan';
 import Asin from './Functions/Asin';
 import Acos from './Functions/Acos';
 import Atan from './Functions/Atan';
+import NaturalLog from './Functions/NaturalLog';
 import Constant from './Constant';
 
 export {
   Add, Divide, Multiply, Subtract, Modulo, TreeNode, Power, Sine, Cosine, Tan, Factorial,
-  Gammln, Constant, Max, Min, Asin, Acos, Atan,
+  Gammln, Constant, Max, Min, Asin, Acos, Atan, NaturalLog,
 };

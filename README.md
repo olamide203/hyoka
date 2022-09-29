@@ -196,4 +196,8 @@ new Expression('sin(30)').evaluate(); // 0.5
     <td>tan</td>
     <td>returns the tangent of an expression</td>
   </tr>
+  <tr>
+    <td>ln</td>
+    <td>returns the natural log of an expression</td>
+  </tr>
 </table>
