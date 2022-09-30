@@ -38,7 +38,7 @@ export const UNARY_OPERATOR_PREC:IOperator = {
   '!': 5,
 };
 
-export const BINARAY_OPERATOR_PREC:IOperator = {
+export const BINARY_OPERATOR_PREC:IOperator = {
   '+': 1,
   '-': 1,
   '*': 2,

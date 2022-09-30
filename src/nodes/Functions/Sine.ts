@@ -4,7 +4,7 @@ import TrigFn from './TrigFn';
 import { SPECIAL_ANGLES, QUADRANT_SIGNS } from '../../constants/specialAngles';
 
 /**
- * Sine  function node
+ * Sine function node
  * @class Sine
  * @extends {TreeNode}
  */

@@ -3,14 +3,14 @@ import Token, { Tokens } from './Token';
 import TreeNode, { ITreeNode } from './nodes/TreeNode';
 import {
   BINARY_NODE_MAP, UNARY_NODE_MAP,
-  UNARY_OPERATOR_PREC, BINARAY_OPERATOR_PREC,
+  UNARY_OPERATOR_PREC, BINARY_OPERATOR_PREC,
   FUNC_NODE_MAP,
 } from './constants/nodeMaps';
 import { Constant } from './nodes';
 
 /**
  * Parser to be used by the interpreter
- * implementation of the shunting-yard a:lgorithm
+ * implementation of the shunting-yard algorithm
  * https://en.wikipedia.org/wiki/Shunting_yard_algorithm
  */
 
@@ -149,7 +149,7 @@ export default class Parser {
   private static getTokenPrec(token:Token):number {
     switch (token.type) {
       case Tokens.BINARY_INFIX:
-        return BINARAY_OPERATOR_PREC[token.value];
+        return BINARY_OPERATOR_PREC[token.value];
       case Tokens.UNARY_PREFIX:
         return UNARY_OPERATOR_PREC[token.value];
       case Tokens.UNARY_POSTFIX:
