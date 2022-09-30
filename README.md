@@ -66,7 +66,7 @@ new Expression('2(4(6 / 3 + 2) + 2^3 / - 2(2.5!))').evaluate(); //5.413192236417
 ```
 ## Configuration
 
-hyoka configuration extends that of [decimal.js](https://mikemcl.github.io/decimal.js/). theis means that all configuration options of decimal.js are available. the following configuration options are available:
+hyoka configuration extends that of [decimal.js](https://mikemcl.github.io/decimal.js/). this means that all configuration options of decimal.js are available. the following configuration options are available:
 - `precision`: the number of digits of precision to use
 - `rounding`: the rounding mode to use
 - `modulo`: the modulo to use
