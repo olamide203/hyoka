@@ -22,8 +22,7 @@ export default class NaturalLog extends TreeNode implements ITreeNode {
    * @returns the result of the natural log function
    */
   evaluate() {
-    const x = new Decimal(this.operand.evaluate());
-    return Decimal.ln(x).toString();
+    return Decimal.ln(this.operand.evaluate()).toString();
   }
 
   /**
