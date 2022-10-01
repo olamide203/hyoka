@@ -1,3 +1,12 @@
+# [1.1.0](https://github.com/olamide203/hyoka/compare/v1.0.7...v1.1.0) (2022-10-01)
+
+
+### Features
+
+* add NaturalLog node class ([#13](https://github.com/olamide203/hyoka/issues/13)) ([9ef3600](https://github.com/olamide203/hyoka/commit/9ef36005b3437c2b4b74fa1885b6a8b86a8b2722))
+
+
+
 ## [1.0.7](https://github.com/olamide203/hyoka/compare/v1.0.6...v1.0.7) (2022-08-27)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * fix error in readme ([d2ffc7b](https://github.com/olamide203/hyoka/commit/d2ffc7bab2193c490ef4b991aeeb8f61e50dc49f))
-
-
-
-## [1.0.2](https://github.com/olamide203/hyoka/compare/v1.0.1...v1.0.2) (2022-08-25)
-
-
-### Bug Fixes
-
-* fix error in package.json ([a1e0b29](https://github.com/olamide203/hyoka/commit/a1e0b29ec4485242a3a2648ad0b57dbd47077ae7))
 
 
 
