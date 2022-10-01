@@ -30,6 +30,7 @@ export const FUNC_NODE_MAP:{[key:string]:(x:ITreeNode[])=>ITreeNode} = {
   asin: (x:ITreeNode[]) => new Nodes.Asin(...x),
   acos: (x:ITreeNode[]) => new Nodes.Acos(...x),
   atan: (x:ITreeNode[]) => new Nodes.Atan(...x),
+  ln: (x:ITreeNode[]) => new Nodes.NaturalLog(...x),
 };
 
 export const UNARY_OPERATOR_PREC:IOperator = {
