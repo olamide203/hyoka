@@ -1,18 +1,11 @@
 name: Feature Request
 description: Suggest an idea for this project
-title: "Feature: "
+title: "[FEATURE]"
 labels: ["enhancement"]
 body:
   - type: markdown
     attributes:
       value: "## Thanks for taking the time to fill out this feature request!"
-  - type: checkboxes
-    attributes:
-      label: is there an existing issue for this?
-      description: please check if an issue already exists for the feature you are requesting
-      options:
-        - label: I have searched the existing issues
-          required: true
   - type: textarea
     attributes: 
       label: Description
