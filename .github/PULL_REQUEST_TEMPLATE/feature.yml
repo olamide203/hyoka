@@ -1,0 +1,63 @@
+name: Feature Pull Request
+description: Adds a new feature
+title: "[Feature]: "
+labels: ["feature", "triage"]
+assignees:
+  - octocat
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to contribute!
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
+  - type: input
+    id: issue
+    attributes:
+      label: Issue
+      description: Which issue does your pull request complete (if any)?
+      placeholder: ex. \#92
+    validations:
+      required: false
+  - type: textarea
+    id: details
+    attributes:
+      label: Any additional details?
+      description: Optional part, but feel free to add any additional details or context that might be useful.
+      placeholder: Tell us what you want!
+    validations:
+      required: false
+  - type: dropdown
+    id: version
+    attributes:
+      label: Version
+      description: What version of our software are you running?
+      options:
+        - 1.0.2 (Default)
+        - 1.0.3 (Edge)
+    validations:
+      required: true
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: What browsers are you seeing the problem on?
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this pull request, you agree to follow our [Code of Conduct](https://example.com)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
