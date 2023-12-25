@@ -10,7 +10,7 @@
     "declaration": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "target": "ES5",
+    "target": "ES6",
     "declarationDir": "./build/types",
     "declarationMap": true,
     "outDir": "./build",

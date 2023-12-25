@@ -2,6 +2,7 @@ import Decimal from 'decimal.js';
 
 export interface Config extends Decimal.Config {
     angles?: 'deg' | 'rad';
+    decimalPlaces?: number;
 }
 
 export interface ITreeNode{

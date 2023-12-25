@@ -13,7 +13,7 @@ describe('NaturalLog', () => {
   });
   it('can evaluate the abstract syntax tree', () => {
     Expression.config({ precision: 3 });
-    expect(new NaturalLog(a).evaluate()).toEqual('0.693');
+    expect(new NaturalLog(a).evaluate()).toEqual('0.69314718055994530942');
     expect(new Expression('ln(1)').evaluate()).toEqual('0');
     expect(new Expression('ln(2π)').evaluate()).toEqual('1.84');
     expect(new Expression('ln(ln(1))').evaluate()).toEqual('-Infinity');
