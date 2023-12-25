@@ -1,3 +1,12 @@
+# [1.2.0](https://github.com/olamide203/hyoka/compare/v1.1.0...v1.2.0) (2023-12-25)
+
+
+### Features
+
+* add local config options ([#62](https://github.com/olamide203/hyoka/issues/62)) ([724d39e](https://github.com/olamide203/hyoka/commit/724d39e8dd83d22a4bd9833813af65db07012be6))
+
+
+
 # [1.1.0](https://github.com/olamide203/hyoka/compare/v1.0.7...v1.1.0) (2022-10-01)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * minor version bump ([fee8a6f](https://github.com/olamide203/hyoka/commit/fee8a6f6c9d2f0aa36fd6a4a92309863cfdf84df))
-
-
-
-## [1.0.3](https://github.com/olamide203/hyoka/compare/v1.0.2...v1.0.3) (2022-08-25)
-
-
-### Bug Fixes
-
-* fix error in readme ([d2ffc7b](https://github.com/olamide203/hyoka/commit/d2ffc7bab2193c490ef4b991aeeb8f61e50dc49f))
 
 
 
