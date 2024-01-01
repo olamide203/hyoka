@@ -76,6 +76,7 @@ hyoka configuration extends that of [decimal.js](https://mikemcl.github.io/decim
 - `maxE`: the maximum exponent value
 - `crypto`: whether to use the crypto module for random number generation
 - `angles`: the unit of angles to use for trig functions
+- `decimalPlaces`: the number of decimal places of returned value
   
 The config options can be set using the `config` method on the `Expression` class:
 
@@ -88,6 +89,24 @@ Expression.config({
   angles: 'degrees'
 });
 
+new Expression('sin(30)').evaluate(); // 0.5
+```
+
+config options can also be passed to the `evaluate` method. this will override the global config options for that evaluation only:
+
+```js
+import {Expression} from 'hyoka';
+Expression.config({
+  precision: 20,
+  rounding: 4,
+  angles: 'degrees'
+});
+
+// using local config options
+new Expression('sin(π/6)').evaluate({angles: 'radians'}); // 0.5
+new Expression('1/3').evaluate({decimalPlaces: 3}); // 0.333
+
+// using global config options
 new Expression('sin(30)').evaluate(); // 0.5
 ```
 ## Supported Operators
