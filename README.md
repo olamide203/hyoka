@@ -1,8 +1,7 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/olamide203/hyoka/520a6acfac8c05aceaf2c58898c977ffc06e5d55/.github/assets/logo.svg" alt="hyoka" height="250"/>
+  <img src="https://raw.githubusercontent.com/olamide203/hyoka/520a6acfac8c05aceaf2c58898c977ffc06e5d55/.github/assets/logo.svg" alt="hyoka" height="200"/>
 </p>
 
-<h1 align="center">hyoka</h1>
 <p align="center">
   <a href="https://www.npmjs.com/package/hyoka" target="_blank">
   <img src="https://img.shields.io/npm/v/hyoka.svg" alt="Version"/>
@@ -22,6 +21,7 @@
 </p>
 
 <!-- description -->
+# hyoka
 hyoka is a simple math expression parser and evaluator for JavaScript and TypeScript. it uses [decimal.js](https://mikemcl.github.io/decimal.js/) to ensure precision of floating point calculations.
 
 ## Features
