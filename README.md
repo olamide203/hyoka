@@ -1,6 +1,25 @@
-# hyoka
-[![Version](https://img.shields.io/npm/v/hyoka.svg)](https://www.npmjs.com/package/hyoka) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/olamide203/hyoka/blob/main/LICENSE) [![GitHub release (latest by date)](https://img.shields.io/github/v/release/olamide203/hyoka?)](https://github.com/olamide203/hyoka/releases) [![Build Status](https://github.com/olamide203/hyoka/workflows/CI/badge.svg)](https://github.com/olamide203/hyoka/actions) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/olamide203/hyoka/520a6acfac8c05aceaf2c58898c977ffc06e5d55/.github/assets/logo.svg" alt="hyoka" height="250"/>
+</p>
 
+<h1 align="center">hyoka</h1>
+<p align="center">
+  <a href="https://www.npmjs.com/package/hyoka" target="_blank">
+  <img src="https://img.shields.io/npm/v/hyoka.svg" alt="Version"/>
+  </a>
+  <a href="https://github.com/olamide203/hyoka/blob/main/LICENSE" target="_blank">
+  <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License"/>
+  </a>
+  <a href="https://github.com/olamide203/hyoka/releases" target="_blank">
+  <img src="https://img.shields.io/github/v/release/olamide203/hyoka?" alt=""/>
+  </a>
+    <a href="https://github.com/olamide203/hyoka/actions" target="_blank">
+  <img src="https://github.com/olamide203/hyoka/workflows/CI/badge.svg" alt=""/>
+  </a>
+  <a href="http://commitizen.github.io/cz-cli/" target="_blank">
+  <img src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" alt=""/>
+  </a>
+</p>
 
 <!-- description -->
 hyoka is a simple math expression parser and evaluator for JavaScript and TypeScript. it uses [decimal.js](https://mikemcl.github.io/decimal.js/) to ensure precision of floating point calculations.
