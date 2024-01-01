@@ -1,8 +1,27 @@
-# hyoka
-[![Version](https://img.shields.io/npm/v/hyoka.svg)](https://www.npmjs.com/package/hyoka) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/olamide203/hyoka/blob/main/LICENSE) [![GitHub release (latest by date)](https://img.shields.io/github/v/release/olamide203/hyoka?)](https://github.com/olamide203/hyoka/releases) [![Build Status](https://github.com/olamide203/hyoka/workflows/CI/badge.svg)](https://github.com/olamide203/hyoka/actions) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/olamide203/hyoka/520a6acfac8c05aceaf2c58898c977ffc06e5d55/.github/assets/logo.svg" alt="hyoka" height="200"/>
+</p>
 
+<p align="center">
+  <a href="https://www.npmjs.com/package/hyoka" target="_blank">
+  <img src="https://img.shields.io/npm/v/hyoka.svg" alt="Version"/>
+  </a>
+  <a href="https://github.com/olamide203/hyoka/blob/main/LICENSE" target="_blank">
+  <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License"/>
+  </a>
+  <a href="https://github.com/olamide203/hyoka/releases" target="_blank">
+  <img src="https://img.shields.io/github/v/release/olamide203/hyoka?" alt=""/>
+  </a>
+    <a href="https://github.com/olamide203/hyoka/actions" target="_blank">
+  <img src="https://github.com/olamide203/hyoka/workflows/CI/badge.svg" alt=""/>
+  </a>
+  <a href="http://commitizen.github.io/cz-cli/" target="_blank">
+  <img src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" alt=""/>
+  </a>
+</p>
 
 <!-- description -->
+# hyoka
 hyoka is a simple math expression parser and evaluator for JavaScript and TypeScript. it uses [decimal.js](https://mikemcl.github.io/decimal.js/) to ensure precision of floating point calculations.
 
 ## Features
@@ -76,6 +95,7 @@ hyoka configuration extends that of [decimal.js](https://mikemcl.github.io/decim
 - `maxE`: the maximum exponent value
 - `crypto`: whether to use the crypto module for random number generation
 - `angles`: the unit of angles to use for trig functions
+- `decimalPlaces`: the number of decimal places of returned value
   
 The config options can be set using the `config` method on the `Expression` class:
 
@@ -88,6 +108,24 @@ Expression.config({
   angles: 'degrees'
 });
 
+new Expression('sin(30)').evaluate(); // 0.5
+```
+
+config options can also be passed to the `evaluate` method. this will override the global config options for that evaluation only:
+
+```js
+import {Expression} from 'hyoka';
+Expression.config({
+  precision: 20,
+  rounding: 4,
+  angles: 'degrees'
+});
+
+// using local config options
+new Expression('sin(π/6)').evaluate({angles: 'radians'}); // 0.5
+new Expression('1/3').evaluate({decimalPlaces: 3}); // 0.333
+
+// using global config options
 new Expression('sin(30)').evaluate(); // 0.5
 ```
 ## Supported Operators
