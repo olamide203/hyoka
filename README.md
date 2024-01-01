@@ -3,21 +3,11 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/hyoka" target="_blank">
-  <img src="https://img.shields.io/npm/v/hyoka.svg" alt="Version"/>
-  </a>
-  <a href="https://github.com/olamide203/hyoka/blob/main/LICENSE" target="_blank">
-  <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License"/>
-  </a>
-  <a href="https://github.com/olamide203/hyoka/releases" target="_blank">
-  <img src="https://img.shields.io/github/v/release/olamide203/hyoka?" alt=""/>
-  </a>
-    <a href="https://github.com/olamide203/hyoka/actions" target="_blank">
-  <img src="https://github.com/olamide203/hyoka/workflows/CI/badge.svg" alt=""/>
-  </a>
-  <a href="http://commitizen.github.io/cz-cli/" target="_blank">
-  <img src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" alt=""/>
-  </a>
+  <a href="https://www.npmjs.com/package/hyoka"><img src="https://img.shields.io/npm/v/hyoka.svg" alt="Version"/></a>
+  <a href="https://github.com/olamide203/hyoka/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License"/></a>
+  <a href="https://github.com/olamide203/hyoka/releases"><img src="https://img.shields.io/github/v/release/olamide203/hyoka?" alt=""/></a>
+  <a href="https://github.com/olamide203/hyoka/actions"><img src="https://github.com/olamide203/hyoka/workflows/CI/badge.svg" alt=""/></a>
+  <a href="http://commitizen.github.io/cz-cli/"><img src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" alt=""/></a>
 </p>
 
 <!-- description -->
